@@ -1,2 +1,2 @@
-# vfxissue
-vfxissue.com source code
+该网站是本人练手作业。
+设计该网站目的是为vfx从业者提供一个互助平台。

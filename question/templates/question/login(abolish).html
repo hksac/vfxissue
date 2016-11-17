@@ -1,0 +1,22 @@
+{% load staticfiles %}
+<div id='loginpage'>
+    <div style='margin-top:5%' >
+        <div>
+            <img src='{% static "icons/mainlogo.png" %}'></img>
+        </div><br/>
+        <form>{% csrf_token %}
+            <div>
+                <a id='login'>用户名</a><br />
+                <a id='login' name='Username'><input type='text' value='用户名'></a><br />
+                <a id='login'>密码</a><br />
+                <a id='login' name='Password'><input type='password' value='密码'></a>
+            </div>
+            <br />
+            <div>
+                <a class='submitComment' href="javascript:submitlogin();">登录</a>
+                <a class='submitComment' href="javascript:openRegister();">注册</a>
+                <a class='submitComment' href="javascript:closeLogin();">关闭</a>
+            </div>
+        </form>
+    </div>
+</div>

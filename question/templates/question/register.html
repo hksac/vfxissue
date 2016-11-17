@@ -1,0 +1,33 @@
+{% load staticfiles %}
+<div style='margin-top:5%' >
+    <div>
+        <img src='{% static "icons/mainlogo.png" %}'></img>
+    </div><br/>
+    <div>
+        <form method='post'>
+            {% csrf_token %}
+
+            <a id='register'>用户名</a><br />
+            <a id='register' name='registerusername'>{{ form.username }}</a><br />
+            <a id='register'>邮箱</a><br />
+            <a id='register' name='registeremail'><input type='email' value='example@email.com'></a><br />
+            <a id='register'>密码<a id='register' href="javascript:alert('本站无法确保您的账户密码安全，为了安全起见，\n请不要将您的常用密码设置为登陆本站的个人密码！')">（请勿使用常用密码）</a></a><br />
+            <a id='register' name='registerpassword1'>{{ form.password1 }}</a><br />
+            
+            {% if error %}
+                <a id='register'>{{ error }}</a><br />
+            {% endif %}
+            
+            <a id='register'>确认密码</a><br />
+            <a id='register' name='registerpassword2'>{{ form.password2 }}</a><br />
+            <a id='register'>同意并接受</a><a id='register' href='javascript:showPolicyPage();'>《服务条款》</a>
+
+        </form>
+    </div>
+    <br />
+
+    <div>
+        <a class='submitComment' href="javascript:submitregister();">注册</a>
+        <a class='submitComment' href="javascript:closeRegister();">关闭</a>
+    </div>
+</div>

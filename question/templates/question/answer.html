@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load staticfiles %}
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!-- This CSS part. -->
+    <link rel='stylesheet' type='text/css' href="{% static 'css/home.css' %}">
+
+
+    <!-- This JS part. -->
+    <script language='javascript' src='{% static "javascript/jquery.js" %}'></script>
+    <script language='javascript' src='{% static "javascript/jquery-ui.js" %}'></script>
+    <script language='javascript' src='{% static "javascript/jquery.cookie.js" %}'></script>
+    <script language='javascript' src='{% static "javascript/crsf_token.js" %}'></script>
+    <script language='javascript' src='{% static "javascript/home.js" %}'></script>
+    
+    <script type="text/javascript">
+        $(document.body).ready(function(){
+            adjustHead();
+            showsidediv();
+            setlogindivcontent();
+            showHotUserPage();
+            showHotQuestionPage();
+            showAnswerPage({{ id }});
+        });
+        
+    </script>
+
+    <title>{% block title %}VFX ISSUES{% endblock %}</title>
+</head>
+
+
+<!-- body resize event. -->
+<body onresize='adjustHead();showsidediv();adjustquestionItemBox()'>
+
+
+<!-- load navigate page. -->
+{% include 'question/nav.html' %}
+
+
+<div id='main'>
+
+    <div id='subquestion'>
+        <div id='questions'></div>
+        <!-- <div id='pageAlgorithm'></div> -->
+    </div>
+
+    <div id='side'>
+        <div style='height:200px;margin-left:20px;'>
+            <p style='color:#778822;font-size:13px;margin:10px;width:200px;'>VFXISSUE是一个专注于解决电影视效问题，提高行业技术水平的社区。</p>
+            <div class='loginbutton' style='background-color:#4477FF;' onmouseout="this.style.cssText='background-color:#4477FF;'" onmouseover="this.style.cssText='background-color:#2255DD;'" onclick="alert('该项功能暂未开放')">Google登陆</div>
+            <div class='loginbutton' style='background-color:#66DC66;' onmouseout="this.style.cssText='background-color:#66DC66;'" onmouseover="this.style.cssText='background-color:#44CB55;'" onclick="alert('该项功能暂未开放')">微信登陆</div>
+            <div class='loginbutton' style='background-color:#DD4444;' onmouseout="this.style.cssText='background-color:#DD4444;'" onmouseover="this.style.cssText='background-color:#CB3333;'" onclick="alert('该项功能暂未开放')">微博登陆</div>
+        </div>
+        <div style='width:300px;margin:40px 10px 40px 0px;'> <!-- height:350px; -->
+            <div style='font-size:16px;color:#3388BB;text-align:center;'>排行榜</div>
+            <div id='hotuser'>
+                <ol style='font-size:14px;color:#47aacc;'>
+                    <li style='clear:both;'>
+                        <div class='person'>匿名用户</div>
+                        <div class='activetime'>+0</div>
+                    </li>
+                    <li style='clear:both;'>
+                        <div class='person'>匿名用户</div>
+                        <div class='activetime'>+0</div>
+                    </li>
+                    <li style='clear:both;'>
+                        <div class='person'>匿名用户</div>
+                        <div class='activetime'>+0</div>
+                    </li>
+                    <li style='clear:both;'>
+                        <div class='person'>匿名用户</div>
+                        <div class='activetime'>+0</div>
+                    </li>
+                    <li style='clear:both;'>
+                        <div class='person'>匿名用户</div>
+                        <div class='activetime'>+0</div>
+                    </li>
+                    <li style='clear:both;'>
+                        <div class='person'>匿名用户</div>
+                        <div class='activetime'>+0</div>
+                    </li>
+                    <li style='clear:both;'>
+                        <div class='person'>匿名用户</div>
+                        <div class='activetime'>+0</div>
+                    </li>
+                    <li style='clear:both;'>
+                        <div class='person'>匿名用户</div>
+                        <div class='activetime'>+0</div>
+                    </li>
+                    <li style='clear:both;'>
+                        <div class='person'>匿名用户</div>
+                        <div class='activetime'>+0</div>
+                    </li>
+                    <li style='clear:both;'>
+                        <div class='person'>匿名用户</div>
+                        <div class='activetime'>+0</div>
+                    </li>
+                </ol>
+            </div>
+        </div>
+        <div style='width:300px;margin:80px 10px 40px 0px;'>
+            <div style='font-size:16px;color:#3388BB;text-align:center;'>热门问题</div>
+            <div id='hotquestion'>
+                <ol style='font-size:14px;color:#47aacc;'>
+                    <li style='clear:both;'>
+                        <div class='hotquestionTitle'>默认问题</div>
+                        <div class='hotquestionAnswerNumber'>&nbsp;&nbsp;&nbsp;&nbsp;0个答案</div>
+                    </li>
+                    <li style='clear:both;'>
+                        <div class='hotquestionTitle'>默认问题</div>
+                        <div class='hotquestionAnswerNumber'>&nbsp;&nbsp;&nbsp;&nbsp;0个答案</div>
+                    </li>
+                    <li style='clear:both;'>
+                        <div class='hotquestionTitle'>默认问题</div>
+                        <div class='hotquestionAnswerNumber'>&nbsp;&nbsp;&nbsp;&nbsp;0个答案</div>
+                    </li>
+                    <li style='clear:both;'>
+                        <div class='hotquestionTitle'>默认问题</div>
+                        <div class='hotquestionAnswerNumber'>&nbsp;&nbsp;&nbsp;&nbsp;0个答案</div>
+                    </li>
+                    <li style='clear:both;'>
+                        <div class='hotquestionTitle'>默认问题</div>
+                        <div class='hotquestionAnswerNumber'>&nbsp;&nbsp;&nbsp;&nbsp;0个答案</div>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- load bottom page. -->
+{% include 'question/bottom.html' %}
+
+
+<!-- preload login addquestion register pages. -->
+<div id='loginpage'></div>
+<div id='addquestionpage'></div>
+<div id='registerpage'></div>
+<div id='policypage'></div>
+
+</body>
+</html>

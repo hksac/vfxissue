@@ -1,0 +1,39 @@
+{% load staticfiles %}
+<div style='margin-top:5%' >
+    <div>
+        <img src='{% static "icons/mainlogo.png" %}'></img>
+    </div><br/>
+
+    <div>
+        <form method='post'>
+        {% csrf_token %}
+        <a id='login' style='position:absolute;left:5%'>标题</a>
+        <a name='questionTitle' style='position:absolute;left:10%'>{{ form.title }}</a>
+        <br />
+        <br />
+        <a id='login' style='position:absolute;left:5%'>标签</a>
+        <a id='login' name='questionTag' style='position:absolute;left:10%'>{{ form.tag }}</a>
+        <br />
+        <br />
+        <a id='login' style='position:absolute;left:5%'>内容</a>
+        <a id='login' name='questionContent' style='position:absolute;left:10%'>{{ form.content }}</a>
+        </form>
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <div>
+        <a class='submitComment' href="javascript:submitAddQuestion();" style='position:absolute;left:10%'>提交</a>
+        <a class='submitComment' href="javascript:closeQuestion();" style='position:absolute;left:17%'>关闭</a>
+    </div>
+
+</div>

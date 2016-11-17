@@ -1,0 +1,50 @@
+<div id='topline' href='#' onclick='showQuestionPage("all");showHotUserPage();showHotQuestionPage();'>
+    <a>VFX</a>
+    <a style="color:#445566;">ISSUES</a>
+</div>
+
+<div id='headtail'>
+    <a>
+        Art or technique?It's a question.
+    </a>
+</div>
+<div id='search' style="position:absolute;">
+    <a><input type='text' value='输入关键字并按回车键搜索' onkeypress="if (event.keyCode == 13) submitsearch()"
+        onclick="this.value='';" onblur="this.value='输入关键字并按回车键搜索'"></a>
+</div>
+
+
+<div style='overflow:hidden;clear:both;background-color:#57bbdd;height:30px;'>
+    <ul style="width:840px;float:left;margin-left:-40px;margin-top:0px;">
+        <li style='float:left;'>
+            <a name='nagavition' onclick='showQuestionPage(requestType="nuke");'>Nuke</a>
+        </li>
+        <li style='float:left;'>
+            <a name='nagavition' onclick='showQuestionPage(requestType="hiero");'>Hiero</a>
+        </li>
+        <li style='float:left;'>
+            <a name='nagavition' onclick='showQuestionPage(requestType="maya");'>Maya</a>
+        </li>
+        <li style='float:left;'>
+            <a name='nagavition' onclick='showQuestionPage(requestType="houdini");'>Houdini</a>
+        </li>
+        <li style='float:left;'>
+            <a name='nagavition' onclick='showQuestionPage(requestType="c4d");'>C4D</a>
+        </li>
+        <li style='float:left;'>
+            <a name='nagavition' onclick='showQuestionPage(requestType="davinci");'>DaVinci </a>
+        </li>
+    </ul>
+</div>
+
+
+<div id='logindiv' style="position:absolute;">
+    <ul style='margin-left:-40px;overflow:hidden;'>
+        <li style='float:left;'>
+            <a name='nagavition' id='logindivcontent' href="javascript:openLogin();"></a>
+        </li>
+        <li style='float:left;'>
+            <a name='nagavition' href="javascript:openAddQuestion()" target="">&#43;&nbsp;提问</a>
+        </li>
+    </ul>
+</div>
